@@ -18,6 +18,7 @@ export class AppExpress {
     middlewares.forEach(middleware => {
       this.app.use(middleware);
     });
+		console.log('teste');
   }
 
   public initServer(port: number) {
