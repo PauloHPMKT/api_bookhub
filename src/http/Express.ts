@@ -1,4 +1,5 @@
-import express, { Application, urlencoded } from "express";
+import express, { Application, urlencoded, json } from "express";
+import cors from "cors";
 
 export class AppExpress {
   private app: Application;
@@ -9,8 +10,14 @@ export class AppExpress {
   }
 
   private setMiddlewares() {
-    this.app.use(express.json());
-    this.app.use(urlencoded({ extended: true }));
+    const middlewares = [
+      json(),
+      urlencoded({ extended: true }),
+      cors(),
+    ]
+    middlewares.forEach(middleware => {
+      this.app.use(middleware);
+    });
   }
 
   public initServer(port: number) {
