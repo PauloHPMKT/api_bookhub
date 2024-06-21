@@ -9,7 +9,7 @@ export class User {
 	public isActive?: boolean;
 	public createdAt?: Date;
 
-	constructor(props: Omit<User, 'id'>, id?: string) {
+	constructor(props: Omit<User, "id">, id?: string) {
 		Object.assign(this, props);
 		this.avatar = this.avatar ?? null;
 		this.isActive = this.isActive || true;
