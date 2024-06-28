@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  bookhub-api:
+    build: .
+    entrypoint: sh ./.docker/entrypoint.sh
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/node/app
+    tty: true
+    networks:
+      - bookhub_net
+
+networks:
+  bookhub_net:
+    driver: bridge
